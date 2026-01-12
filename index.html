@@ -2,8 +2,8 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Huayhuash Trek Peru - By Rocio & Family</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Huayhuash Trek Peru | Premium Andean Expeditions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -11,43 +11,24 @@
         theme: {
           extend: {
             colors: {
-              // Huayhuash Vibrant Andean Palette
-              'brand-dark': '#022c22', // "Negro Pizarra" (Emerald 950) - Deep Organic Dark
-              'brand-green': '#a3e635', // "Verde Ichu" (Lime 400) - Vibrant & Golden
-              'brand-blue': '#06b6d4', // "Turquesa Glaciar" (Cyan 500) - Intense Lake
-              'brand-sun': '#facc15', // "Sol Andino" (Yellow 400)
-              
-              // Light/Dark specific
-              'light-bg': '#f0fdf4', // Minty white
-              'dark-bg': '#022c22', // Deep Emerald Black
+              'brand-dark': '#022c22',
+              'brand-green': '#a3e635',
+              'brand-blue': '#06b6d4',
+              'brand-sun': '#facc15',
+              'light-bg': '#f8fafc',
             },
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
               display: ['Playfair Display', 'serif'],
-              script: ['Dancing Script', 'cursive'],
             },
             animation: {
-              'blob': 'blob 10s infinite',
               'float': 'float 6s ease-in-out infinite',
-              'float-fast': 'float 4s ease-in-out infinite',
-              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'shimmer': 'shimmer 2s linear infinite',
-              'scroll': 'scroll 40s linear infinite',
+              'scroll': 'scroll 30s linear infinite',
             },
             keyframes: {
-              blob: {
-                '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                '100%': { transform: 'translate(0px, 0px) scale(1)' },
-              },
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-20px)' },
-              },
-              shimmer: {
-                '0%': { backgroundPosition: '200% 0' },
-                '100%': { backgroundPosition: '-200% 0' }
+                '50%': { transform: 'translateY(-10px)' },
               },
               scroll: {
                 '0%': { transform: 'translateX(0)' },
@@ -58,91 +39,37 @@
         },
       }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        transition: background-color 0.5s ease, color 0.5s ease;
-      }
-      
-      /* Adaptive Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #a3e635; /* brand-green */
-        border-radius: 4px;
-      }
-      .dark ::-webkit-scrollbar-thumb {
-        background: #022c22; /* brand-dark */
-        border: 1px solid #a3e635;
-      }
-
-      .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-      }
-      .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-      }
-
-      /* Glassmorphism */
+      body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
       .glass-panel {
-        @apply transition-all duration-300;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
       }
-      
-      :root .glass-panel {
-        background: rgba(255, 255, 255, 0.65);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        box-shadow: 0 8px 32px rgba(6, 182, 212, 0.1); /* Cyan tint shadow */
-      }
-
       .dark .glass-panel {
-        background: rgba(2, 44, 34, 0.7); /* brand-dark opacity */
-        border: 1px solid rgba(163, 230, 53, 0.15); /* Lime border */
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        background: rgba(2, 44, 34, 0.7);
+        border: 1px solid rgba(163, 230, 53, 0.1);
       }
-
-      .text-gradient {
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(to right, #022c22, #06b6d4);
-      }
-      
-      .dark .text-gradient {
-        background-image: linear-gradient(to right, #a3e635, #06b6d4);
-      }
-
-      /* Marquee Utils */
-      .mask-fade-sides {
-        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-      }
-      
-      .pause-hover:hover {
-        animation-play-state: paused;
-      }
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25"
-  }
-}
-</script>
-</head>
-  <body class="bg-light-bg text-brand-dark dark:bg-dark-bg dark:text-gray-100">
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+        "react/": "https://aistudiocdn.com/react@^19.2.1/",
+        "react": "https://aistudiocdn.com/react@^19.2.1",
+        "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+        "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25"
+      }
+    }
+    </script>
+  </head>
+  <body class="bg-light-bg text-brand-dark dark:bg-brand-dark dark:text-gray-100">
     <div id="root"></div>
+    <!-- CRITICAL: Script tag to load the app -->
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>
