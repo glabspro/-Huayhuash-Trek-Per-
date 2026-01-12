@@ -8,8 +8,7 @@ import { Language } from './types';
 import { TEXTS } from './constants';
 
 function App() {
-  const [lang, setLang] = useState<Language>('en');
-  // Initialize theme based on system preference or default to dark
+  const [lang, setLang] = useState<Language>('en'); // Defaulting to English
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   const t = TEXTS[lang];
@@ -27,7 +26,7 @@ function App() {
   };
 
   return (
-    <main className="min-h-screen overflow-x-hidden selection:bg-brand-green selection:text-brand-dark transition-colors duration-500">
+    <main className="min-h-screen bg-light-bg dark:bg-brand-dark selection:bg-brand-green selection:text-brand-dark transition-colors duration-500 overflow-x-hidden">
       <Navbar lang={lang} setLang={setLang} t={t.nav} theme={theme} toggleTheme={toggleTheme} />
       <Hero t={t} theme={theme} />
       <Treks t={t.treks} lang={lang} />
